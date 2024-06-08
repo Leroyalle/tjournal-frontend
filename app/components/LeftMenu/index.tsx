@@ -10,6 +10,7 @@ import {
 } from '@material-ui/icons';
 
 import styles from './LeftMenu.module.scss';
+import { usePathname } from 'next/navigation';
 
 const menu = [
   { text: 'Лента', icon: <FireIcon />, path: '/' },
@@ -19,13 +20,14 @@ const menu = [
 ];
 
 export const LeftMenu: React.FC = () => {
+  const pathName = usePathname();
   return (
     <div className={styles.menu}>
       <ul>
         {menu.map((obj) => (
           <li key={obj.path}>
             <Link href={obj.path}>
-              <Button>
+              <Button variant={pathName === obj.path ? 'contained' : 'text'}>
                 {obj.icon}
                 {obj.text}
               </Button>
