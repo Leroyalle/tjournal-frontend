@@ -5,13 +5,15 @@ import MoreIcon from '@material-ui/icons/MoreHorizOutlined';
 import styles from './Comment.module.scss';
 
 interface CommentPostProps {
-  user?: {
-    fullname: string;
-  };
   text?: string;
+  createdAt: string;
+  user: {
+    fullname: string;
+    avatarUrl: string;
+  };
 }
 
-export const Comment: React.FC<CommentPostProps> = ({ user, text }) => {
+export const Comment: React.FC<CommentPostProps> = ({ text, createdAt, user }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLButtonElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -25,17 +27,11 @@ export const Comment: React.FC<CommentPostProps> = ({ user, text }) => {
   return (
     <div className={styles.comment}>
       <div className={styles.userInfo}>
-        <img
-          src="https://leonardo.osnova.io/104b03b4-5173-fd9f-2af9-b458dddc4a23/-/scale_crop/108x108/-/format/webp/"
-          alt="Avatar"
-        />
-        <b>Master Oogway</b>
-        <span>5 часов</span>
+        <img src={user.avatarUrl} alt="Avatar" />
+        <b>{user.fullname}</b>
+        <span>{createdAt}</span>
       </div>
-      <Typography className={styles.text}>
-        Суперджет это ад адский, два раза летала и оба раза прощалась с жизнью. Трясёт хуже, чем в
-        копейке по разьебанной дороге
-      </Typography>
+      <Typography className={styles.text}>{text}</Typography>
       <span className={styles.replyBtn}>Ответить</span>
       <IconButton onClick={handleClick}>
         <MoreIcon />

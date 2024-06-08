@@ -1,0 +1,56 @@
+{
+  "comments": {
+    "popular": [
+      {
+        "id": 1,
+        "user": {
+          "fullname": "Вася Пупкин",
+          "avatarUrl": "https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+        },
+        "text": "Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…",
+        "post": {
+          "title": "Какая у вас дома ванна?"
+        },
+        "createdAt": "Sun Jun 09 2024 01:17:53 GMT+0300 (Москва, стандартное время)"
+      },
+      {
+        "id": 2,
+        "user": {
+          "fullname": "Вася Пупкин",
+          "avatarUrl": "https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+        },
+        "text": "Lorem sdfpaemrgd",
+        "post": {
+          "title": "Какая у вас дома ванна?"
+        },
+        "createdAt": "Sun Jun 09 2024 01:17:53 GMT+0300 (Москва, стандартное время)"
+      },
+      {
+        "id": 3,
+        "user": {
+          "fullname": "Вася Пупкин",
+          "avatarUrl": "https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+        },
+        "text": "Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…",
+        "post": {
+          "title": "Какая у вас дома ванна?"
+        },
+        "createdAt": "Sun Jun 09 2024 01:17:53 GMT+0300 (Москва, стандартное время)"
+      }
+    ],
+    "new": [
+      {
+        "id": 3,
+        "user": {
+          "fullname": "Вася Пупкин",
+          "avatarUrl": "https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+        },
+        "text": "Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…",
+        "post": {
+          "title": "Какая у вас дома ванна?"
+        },
+        "createdAt": "Sun Jun 09 2024 01:17:53 GMT+0300 (Москва, стандартное время)"
+      }
+    ]
+  }
+}
