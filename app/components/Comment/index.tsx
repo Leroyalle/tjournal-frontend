@@ -15,7 +15,7 @@ export const Comment: React.FC<CommentPostProps> = ({ user, text }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLButtonElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget as HTMLButtonElement);
+    setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {

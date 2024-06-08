@@ -18,20 +18,12 @@ export default function Home() {
           rel="stylesheet"></link>
       </Head>
       <MainLayout>
-        <div className="leftSide">
-          <LeftMenu />
-        </div>
-        <div className="content">
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-        </div>
-        <div className="rightSide">
-          <SideComments />
-        </div>
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
       </MainLayout>
     </div>
   );

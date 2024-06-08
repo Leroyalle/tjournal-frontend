@@ -1,12 +1,11 @@
 'use client';
 
+import './styles/globals.scss';
+import 'macro-css';
 import type { ReactNode } from 'react';
 import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
 import { theme } from '../theme';
-import './styles/globals.scss';
-import 'macro-css';
 import { Header } from './components/Header';
-
 interface IProps {
   children: ReactNode;
 }
