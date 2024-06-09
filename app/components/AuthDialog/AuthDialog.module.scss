@@ -1,0 +1,40 @@
+.content {
+  width: 70%;
+  margin: 30px auto;
+  button {
+    position: relative;
+    svg {
+      position: absolute;
+      left: 10px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .title {
+    font-size: 18px !important;
+    color: black !important;
+    margin-bottom: 25px !important;
+    font-weight: 600 !important;
+  }
+}
+.smallButtons {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 15px;
+  button {
+    height: 40px;
+    svg {
+      position: static;
+    }
+  }
+}
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+  &:hover {
+    color: #4683d9;
+  }
+}
