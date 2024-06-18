@@ -10,12 +10,15 @@ import FormField from '../../FormField';
 import { UserApi } from '@/app/utils/api';
 import { CreateUserDto } from '@/app/utils/api/types';
 import Alert from '@mui/material/Alert';
+import { setUserData } from '@/app/redux/slices/user';
+import { useAppDispatch } from '@/app/redux/hooks';
 
 interface IRegisterForm {
   onOpenLogin: () => void;
 }
 
 export const RegisterForm: React.FC<IRegisterForm> = ({ onOpenLogin }) => {
+  const dispatch = useAppDispatch();
   const [errorMessage, setErrorMessage] = React.useState('');
 
   const form = useForm({
@@ -30,6 +33,8 @@ export const RegisterForm: React.FC<IRegisterForm> = ({ onOpenLogin }) => {
         maxAge: 30 * 24 * 60 * 60,
         path: '/',
       });
+      setErrorMessage('');
+      dispatch(setUserData(data));
     } catch (err) {
       console.warn('Register error', err);
       alert('Ошибка при регистрации');

@@ -6,6 +6,8 @@ import type { ReactNode } from 'react';
 import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
 import { theme } from '../theme';
 import { Header } from './components/Header';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 interface IProps {
   children: ReactNode;
 }
@@ -13,13 +15,15 @@ interface IProps {
 export default function RootLayout({ children }: IProps) {
   return (
     <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      <html>
-        <body>
-          <Header />
-          <div>{children}</div>
-        </body>
-      </html>
+      <Provider store={store}>
+        <CssBaseline />
+        <html>
+          <body>
+            <Header />
+            <div>{children}</div>
+          </body>
+        </html>
+      </Provider>
     </MuiThemeProvider>
   );
 }

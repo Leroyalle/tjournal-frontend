@@ -11,12 +11,15 @@ import { LoginDto } from '@/app/utils/api/types';
 import { UserApi } from '@/app/utils/api';
 import { setCookie } from 'nookies';
 import Alert from '@mui/material/Alert';
+import { useAppDispatch } from '@/app/redux/hooks';
+import { setUserData } from '@/app/redux/slices/user';
 
 interface ILoginForm {
   onOpenRegister: () => void;
 }
 
 export const LoginForm: React.FC<ILoginForm> = ({ onOpenRegister }) => {
+  const dispatch = useAppDispatch();
   const [errorMessage, setErrorMessage] = React.useState('');
 
   const form = useForm({
@@ -31,6 +34,7 @@ export const LoginForm: React.FC<ILoginForm> = ({ onOpenRegister }) => {
         path: '/',
       });
       setErrorMessage('');
+      dispatch(setUserData(data));
     } catch (err) {
       console.warn('Login error', err);
       alert('Ошибка при входе');
