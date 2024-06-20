@@ -1,27 +1,20 @@
 import axios from 'axios';
-import { CreateUserDto, LoginDto, ResponseUser } from './types';
+import { parseCookies } from 'nookies';
+import { UserApi } from './user';
 
-const instance = axios.create({
-  baseURL: 'http://localhost:4444/',
-});
+export type TApi = {
+  user: ReturnType<typeof UserApi>;
+};
 
-export const UserApi = {
-  async register(dto: CreateUserDto) {
-    const data = await instance.post<CreateUserDto, { data: ResponseUser }>('/auth/register', dto);
-    return data;
-  },
-
-  async login(dto: LoginDto) {
-    const { data } = await instance.post<LoginDto, { data: ResponseUser }>('/auth/login', dto);
-    return data;
-  },
-
-  async getMe(token: string) {
-    const { data } = await instance.get<ResponseUser>('/users/me', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return data;
-  },
+export const Api = (): TApi => {
+  const { authToken } = parseCookies();
+  const instance = axios.create({
+    baseURL: 'http://localhost:4444/',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  });
+  return {
+    user: UserApi(instance),
+  };
 };
