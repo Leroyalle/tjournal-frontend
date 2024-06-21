@@ -40,6 +40,12 @@ export const Header: React.FC = () => {
     setOpen(false);
   };
 
+  React.useEffect(() => {
+    if (open && userData) {
+      setOpen(false);
+    }
+  }, [open, userData]);
+
   return (
     <Paper classes={{ root: styles.root }} elevation={0}>
       <div className="d-flex align-center">

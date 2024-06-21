@@ -1,6 +1,6 @@
 import { ResponseUser } from '@/app/utils/api/types';
-import { createAsyncThunk, createSlice, PayloadAction, Action } from '@reduxjs/toolkit';
-import { RootState } from '../store';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../../store';
 
 export interface IUserState {
   data: ResponseUser | null;

@@ -4,6 +4,8 @@ import { Input } from '@mui/material';
 import styles from './WriteForm.module.scss';
 import { Button } from '@material-ui/core';
 import { OutputData } from '@editorjs/editorjs';
+import { Api } from '@/app/utils/api';
+import { CreatePostDto } from '@/app/utils/api/types';
 
 const Editor = dynamic(() => import('../Editor').then((m) => m.Editor), { ssr: false });
 
@@ -12,13 +14,32 @@ interface IWriteForm {
 }
 
 export const WriteForm: React.FC<IWriteForm> = () => {
+  const [isLoading, setIsLoading] = React.useState(false);
   const [title, setTitle] = React.useState('');
   const [blocks, setBlocks] = React.useState<OutputData['blocks']>([]);
+
+  const onAddPost = async () => {
+    try {
+      setIsLoading(true);
+      const post = Api().post.create({
+        title,
+        body: blocks,
+      });
+      console.log(post);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div>
       <Input
-        value={(e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => setTitle(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
+          setTitle(e.target.value)
+        }
+        value={title}
         classes={{ root: styles.titleField }}
         placeholder="Заголовок"
         disableUnderline={true}
@@ -26,7 +47,7 @@ export const WriteForm: React.FC<IWriteForm> = () => {
       <div className={styles.editor}>
         <Editor onChange={(arr) => setBlocks(arr)} />
       </div>
-      <Button variant="contained" color="primary">
+      <Button onClick={onAddPost} variant="contained" color="primary">
         Опубликовать
       </Button>
     </div>
